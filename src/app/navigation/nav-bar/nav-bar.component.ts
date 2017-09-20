@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationService } from '../navigation.service';
-import { Observable } from 'rxjs/Observable';
 
 import { MenuItem } from '../shared/menu-item.model';
 
@@ -10,7 +9,7 @@ import { MenuItem } from '../shared/menu-item.model';
   styleUrls: ['./nav-bar.component.sass']
 })
 export class NavBarComponent implements OnInit {
-  menuItems: Observable<MenuItem[]>;
+  menuItems: MenuItem[];
 
   constructor(private navigationService: NavigationService) { }
 
@@ -19,7 +18,22 @@ export class NavBarComponent implements OnInit {
   }
 
   getMenuItems() {
-    this.menuItems = this.navigationService.getNavigationElements();
+    this.navigationService.getNavigationElements()
+      .subscribe(
+        response => this.setMainMenuItems(response.menu, response.main)
+      );
+  }
+
+  setMainMenuItems(menu: MenuItem[], mainIds: number[]) {
+    this.menuItems = menu.filter( ({id}) => !!mainIds.find(mainId => mainId === id));
+  }
+
+  toggleNavMenu() {
+    this.navigationService.toggleNav();
+  }
+
+  openNavigationElement(element: MenuItem) {
+    this.navigationService.selectElement(element);
   }
 
 }

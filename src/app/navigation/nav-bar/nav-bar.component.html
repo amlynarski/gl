@@ -1,8 +1,10 @@
 <div class="nav-bar">
   <div class="container">
     <div class="nav-items">
-      <i class="glyphicon glyphicon-menu-hamburger nav-item"></i>
-      <div *ngFor="let item of menuItems | async"
+      <i class="glyphicon glyphicon-menu-hamburger nav-item"
+         (click)="toggleNavMenu()"></i>
+      <div *ngFor="let item of menuItems"
+           (click)="openNavigationElement(item)"
            class="nav-item">
         {{item.name}}
       </div>

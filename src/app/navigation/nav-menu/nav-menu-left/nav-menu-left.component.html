@@ -1,5 +1,9 @@
 <div class="nav-menu">
     <div class="nav-menu-left-container">
+        <div class="close-nav-item"
+             (click)="closeNav()">
+            <i class="glyphicon glyphicon-remove"></i>
+        </div>
         <app-left-nav-menu-item
                 *ngFor="let item of menuItems"
                 [element]="item"

@@ -11,8 +11,9 @@ import { NavigationService } from '../../../navigation.service';
 export class LeftNavMenuItemComponent implements OnInit {
   @Input() element: MenuItem;
   @Input() isSelected: boolean;
-  @Output() selected = new EventEmitter<MenuItem>();
+  @Output() selected = new EventEmitter<MenuItem | null>();
   iconClassName: string;
+  back = 'Back';
 
   constructor(private navigationService: NavigationService) { }
 
@@ -21,7 +22,11 @@ export class LeftNavMenuItemComponent implements OnInit {
   }
 
   selectElement() {
-    this.selected.emit(this.element);
+    if (!this.isSelected) {
+      this.selected.emit(this.element);
+    } else {
+      this.selected.emit(null);
+    }
   }
 
   getElementIconClass() {

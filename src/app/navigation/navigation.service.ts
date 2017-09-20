@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './shared/menu-item.model';
+import { Subject } from 'rxjs/Subject'; // todo move to rxjs ext
 
 const ICON_PREFIX = 'gl-icon-';
 const THUMB_PATH = '/assets/gl_task_images/';
@@ -9,17 +10,22 @@ const THUMB_PATH = '/assets/gl_task_images/';
 @Injectable()
 export class NavigationService {
   private isOpen: boolean;
+  private isOpenStream: Subject<boolean>;
   private selectedElement: MenuItem | null;
+  private selectedElementStream: Subject<MenuItem | null>;
 
   // todo return types in functions
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+    this.isOpenStream = new Subject();
+    this.selectedElementStream = new Subject();
+  }
 
   getNavigationElements() {
     return this.http
       .get('assets/api/menu.json')
       .map((response: Response) => {
-        return <any[]>response.json().menu;
+        return <any[]>response.json();
       })
       .catch(this.handleError);
   }
@@ -29,15 +35,44 @@ export class NavigationService {
   }
 
   selectElement(element: MenuItem) {
+    if (!this.isOpen) {
+      this.open();
+    }
     this.selectedElement = element;
+    this.selectedElementStream.next(this.selectedElement);
   }
 
-  getSelectedElement(): MenuItem | null {
-    return this.selectedElement;
+  getSelectedElement(): Subject<MenuItem | null> {
+    return this.selectedElementStream;
   }
 
   getThumbFullPath(thumb: string): string {
     return THUMB_PATH.concat(thumb);
+  }
+
+  isNavOpen(): Subject<boolean> {
+    return this.isOpenStream;
+  }
+
+  toggleNav(): boolean {
+    if (this.isOpen) {
+      this.close();
+    } else {
+      this.open();
+    }
+    return this.isOpen;
+  }
+
+  open(): void {
+    this.isOpen = true;
+    this.isOpenStream.next(this.isOpen);
+  }
+
+  close(): void {
+    this.isOpen = false;
+    this.isOpenStream.next(this.isOpen);
+    this.selectedElement = null;
+    this.selectedElementStream.next(this.selectedElement);
   }
 
   private handleError(error: Response) {
