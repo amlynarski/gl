@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { MenuItem } from '../../../shared/menu-item.model';
 import { NavigationService } from '../../../navigation.service';
@@ -10,12 +10,18 @@ import { NavigationService } from '../../../navigation.service';
 })
 export class LeftNavMenuItemComponent implements OnInit {
   @Input() element: MenuItem;
+  @Input() isSelected: boolean;
+  @Output() selected = new EventEmitter<MenuItem>();
   iconClassName: string;
 
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit() {
     this.getElementIconClass();
+  }
+
+  selectElement() {
+    this.selected.emit(this.element);
   }
 
   getElementIconClass() {

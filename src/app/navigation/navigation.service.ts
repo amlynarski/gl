@@ -7,9 +7,8 @@ const ICON_PREFIX = 'gl-icon-';
 
 @Injectable()
 export class NavigationService {
-  isOpen: boolean;
-  selectedElement: MenuItem | null;
-  elements: Array<MenuItem>;
+  private isOpen: boolean;
+  private selectedElement: MenuItem | null;
 
   // todo return types in functions
 
@@ -26,6 +25,14 @@ export class NavigationService {
 
   getElementIconClass(iconName: string) {
     return ICON_PREFIX.concat(iconName.replace('.svg', ''));
+  }
+
+  selectElement(element: MenuItem) {
+    this.selectedElement = element;
+  }
+
+  getSelectedElement(): MenuItem | null {
+    return this.selectedElement;
   }
 
   private handleError(error: Response) {

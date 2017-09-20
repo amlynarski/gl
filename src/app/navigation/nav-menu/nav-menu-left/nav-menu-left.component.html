@@ -2,5 +2,7 @@
     <app-left-nav-menu-item
             *ngFor="let item of menuItems"
             [element]="item"
+            [isSelected]="item.id === selectedElement?.id"
+            (selected)="onElementSelect($event)"
     ></app-left-nav-menu-item>
 </div>
