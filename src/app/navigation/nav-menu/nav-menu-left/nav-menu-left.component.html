@@ -7,5 +7,9 @@
                 (selected)="onElementSelect($event)"
         ></app-left-nav-menu-item>
     </div>
-    <app-nav-menu-left-sub></app-nav-menu-left-sub>
+    <app-nav-menu-left-sub
+            *ngIf="selectedElement"
+            [navElement]="selectedElement"
+            >
+    </app-nav-menu-left-sub>
 </div>

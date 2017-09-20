@@ -1,3 +1,9 @@
 <div class="nav-menu-left-container background-gray">
-  ma
+  <header class="nav-title">
+    {{navElement.name}}
+  </header>
+  <app-sub-nav-menu-item
+          *ngFor="let subItem of navElement.sub"
+          [subItem]="subItem">
+  </app-sub-nav-menu-item>
 </div>

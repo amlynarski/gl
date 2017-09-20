@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './shared/menu-item.model';
 
 const ICON_PREFIX = 'gl-icon-';
+const THUMB_PATH = '/assets/gl_task_images/';
 
 @Injectable()
 export class NavigationService {
@@ -33,6 +34,10 @@ export class NavigationService {
 
   getSelectedElement(): MenuItem | null {
     return this.selectedElement;
+  }
+
+  getThumbFullPath(thumb: string): string {
+    return THUMB_PATH.concat(thumb);
   }
 
   private handleError(error: Response) {
