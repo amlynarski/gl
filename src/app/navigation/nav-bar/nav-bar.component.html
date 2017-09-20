@@ -2,7 +2,7 @@
   <div class="container">
     <div class="nav-items">
       <i class="glyphicon glyphicon-menu-hamburger nav-item"></i>
-      <div *ngFor="let item of menuItems"
+      <div *ngFor="let item of menuItems | async"
            class="nav-item">
         {{item.name}}
       </div>
