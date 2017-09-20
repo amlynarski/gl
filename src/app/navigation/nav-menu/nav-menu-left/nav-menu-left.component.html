@@ -1,8 +1,11 @@
-<div class="nav-menu-left-container">
-    <app-left-nav-menu-item
-            *ngFor="let item of menuItems"
-            [element]="item"
-            [isSelected]="item.id === selectedElement?.id"
-            (selected)="onElementSelect($event)"
-    ></app-left-nav-menu-item>
+<div class="nav-menu">
+    <div class="nav-menu-left-container">
+        <app-left-nav-menu-item
+                *ngFor="let item of menuItems"
+                [element]="item"
+                [isSelected]="item.id === selectedElement?.id"
+                (selected)="onElementSelect($event)"
+        ></app-left-nav-menu-item>
+    </div>
+    <app-nav-menu-left-sub></app-nav-menu-left-sub>
 </div>
