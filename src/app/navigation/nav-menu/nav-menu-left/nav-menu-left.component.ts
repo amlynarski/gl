@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { MenuItem } from '../../shared/menu-item.model';
 
 @Component({
   selector: 'app-nav-menu-left',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../navigation.sass', './nav-menu-left.component.sass']
 })
 export class NavMenuLeftComponent implements OnInit {
+  @Input() menuItems: MenuItem[];
 
   constructor() { }
 

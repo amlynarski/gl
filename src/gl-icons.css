@@ -26,13 +26,13 @@
 
 .gl-icon-casino-bonus_icon:before {
     content: "\e900";
-    color: #fff;
+    color: #000;
 }
 .gl-icon-mobilecasino_icon:before {
     content: "\e901";
-    color: #fff;
+    color: #000;
 }
 .gl-icon-natcasinon:before {
     content: "\e902";
-    color: #fff;
+    color: #000;
 }

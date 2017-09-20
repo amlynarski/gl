@@ -11,6 +11,7 @@ import { NavMenuComponent } from './navigation/nav-menu/nav-menu.component';
 import { NavigationService } from './navigation/navigation.service';
 import { NavMenuLeftComponent } from './navigation/nav-menu/nav-menu-left/nav-menu-left.component';
 import { NavMenuLeftSubComponent } from './navigation/nav-menu/nav-menu-left-sub/nav-menu-left-sub.component';
+import { LeftNavMenuItemComponent } from './navigation/nav-menu/nav-menu-left/left-nav-menu-item/left-nav-menu-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NavMenuLeftSubComponent } from './navigation/nav-menu/nav-menu-left-sub
     NavBarComponent,
     NavMenuComponent,
     NavMenuLeftComponent,
-    NavMenuLeftSubComponent
+    NavMenuLeftSubComponent,
+    LeftNavMenuItemComponent
   ],
   imports: [
     BrowserModule,
