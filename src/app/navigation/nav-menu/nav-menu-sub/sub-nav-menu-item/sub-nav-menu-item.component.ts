@@ -21,4 +21,8 @@ export class SubNavMenuItemComponent implements OnInit {
     return name ? this.navigationService.getThumbFullPath(name) : '';
   }
 
+  navigateTo() {
+    this.navigationService.navigateTo(this.subItem.href);
+  }
+
 }

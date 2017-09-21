@@ -8,17 +8,21 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavigationService } from './navigation/navigation.service';
 import { NavigationModule } from './navigation/navigation.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    NavigationModule
+    NavigationModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
     MainPageComponent,
-    MainPageComponent
+    MainPageComponent,
+    PageNotFoundComponent,
   ],
   providers: [NavigationService],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './shared/menu-item.model';
 import { Subject } from 'rxjs/Subject';
+import { Router } from '@angular/router';
 
 const ICON_PREFIX = 'gl-icon-';
 const THUMB_PATH = '/assets/gl_task_images/';
@@ -16,7 +17,7 @@ export class NavigationService {
 
   // todo return types in functions
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) { // todo update test with router
     this.isOpenStream = new Subject();
     this.selectedElementStream = new Subject();
   }
@@ -77,6 +78,11 @@ export class NavigationService {
     this.isOpenStream.next(this.isOpen);
     this.selectedElement = null;
     this.selectedElementStream.next(this.selectedElement);
+  }
+
+  navigateTo(href: string) {
+    this.router.navigate([href]);
+    this.close();
   }
 
   private handleError(error: Response) {
