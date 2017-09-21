@@ -3,10 +3,10 @@ import { MenuItem } from '../../shared/menu-item.model';
 
 @Component({
   selector: 'app-nav-menu-left-sub',
-  templateUrl: './nav-menu-left-sub.component.html',
-  styleUrls: ['../navigation.sass', './nav-menu-left-sub.component.sass']
+  templateUrl: './nav-menu-sub.component.html',
+  styleUrls: ['../navigation.sass', './nav-menu-sub.component.sass']
 })
-export class NavMenuLeftSubComponent implements OnInit {
+export class NavMenuSubComponent implements OnInit {
   @Input() navElement: MenuItem;
   constructor() { }
 

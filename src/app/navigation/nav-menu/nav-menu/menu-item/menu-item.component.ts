@@ -5,10 +5,10 @@ import { NavigationService } from '../../../navigation.service';
 
 @Component({
   selector: 'app-left-nav-menu-item',
-  templateUrl: './left-nav-menu-item.component.html',
-  styleUrls: ['./left-nav-menu-item.component.sass']
+  templateUrl: './menu-item.component.html',
+  styleUrls: ['./menu-item.component.sass']
 })
-export class LeftNavMenuItemComponent implements OnInit {
+export class MenuItemComponent implements OnInit {
   @Input() element: MenuItem;
   @Input() isSelected: boolean;
   @Output() selected = new EventEmitter<MenuItem | null>();

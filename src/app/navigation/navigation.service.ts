@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { MenuItem } from './shared/menu-item.model';
-import { Subject } from 'rxjs/Subject'; // todo move to rxjs ext
+import { Subject } from 'rxjs/Subject';
 
 const ICON_PREFIX = 'gl-icon-';
 const THUMB_PATH = '/assets/gl_task_images/';
@@ -42,7 +42,11 @@ export class NavigationService {
     this.selectedElementStream.next(this.selectedElement);
   }
 
-  getSelectedElement(): Subject<MenuItem | null> {
+  getSelectedElement() {
+    return this.selectedElement;
+  }
+
+  selectedElementChange(): Subject<MenuItem | null> {
     return this.selectedElementStream;
   }
 

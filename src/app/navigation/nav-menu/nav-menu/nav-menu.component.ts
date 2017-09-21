@@ -5,10 +5,10 @@ import { NavigationService } from '../../navigation.service';
 
 @Component({
   selector: 'app-nav-menu-left',
-  templateUrl: './nav-menu-left.component.html',
-  styleUrls: ['../navigation.sass', './nav-menu-left.component.sass']
+  templateUrl: './nav-menu.component.html',
+  styleUrls: ['../navigation.sass', './nav-menu.component.sass']
 })
-export class NavMenuLeftComponent implements OnInit {
+export class NavMenuComponent implements OnInit {
   menuItems: MenuItem[];
   selectedElement: MenuItem | null = null;
 
@@ -16,7 +16,8 @@ export class NavMenuLeftComponent implements OnInit {
 
   ngOnInit() {
     this.getMenuItems();
-    this.navigationService.getSelectedElement()
+    this.selectedElement = this.navigationService.getSelectedElement();
+    this.navigationService.selectedElementChange()
       .subscribe(
         selectedElement => this.selectedElement = selectedElement
       );

@@ -8,19 +8,19 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { NavBarComponent } from './navigation/nav-bar/nav-bar.component';
 import { NavigationService } from './navigation/navigation.service';
-import { NavMenuLeftComponent } from './navigation/nav-menu/nav-menu-left/nav-menu-left.component';
-import { NavMenuLeftSubComponent } from './navigation/nav-menu/nav-menu-left-sub/nav-menu-left-sub.component';
-import { LeftNavMenuItemComponent } from './navigation/nav-menu/nav-menu-left/left-nav-menu-item/left-nav-menu-item.component';
-import { SubNavMenuItemComponent } from './navigation/nav-menu/nav-menu-left-sub/sub-nav-menu-item/sub-nav-menu-item.component';
+import { NavMenuComponent } from './navigation/nav-menu/nav-menu/nav-menu.component';
+import { NavMenuSubComponent } from './navigation/nav-menu/nav-menu-sub/nav-menu-sub.component';
+import { MenuItemComponent } from './navigation/nav-menu/nav-menu/menu-item/menu-item.component';
+import { SubNavMenuItemComponent } from './navigation/nav-menu/nav-menu-sub/sub-nav-menu-item/sub-nav-menu-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     NavBarComponent,
-    NavMenuLeftComponent,
-    NavMenuLeftSubComponent,
-    LeftNavMenuItemComponent,
+    NavMenuComponent,
+    NavMenuSubComponent,
+    MenuItemComponent,
     SubNavMenuItemComponent
   ],
   imports: [
