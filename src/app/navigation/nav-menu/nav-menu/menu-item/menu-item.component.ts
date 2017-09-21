@@ -11,6 +11,7 @@ import { NavigationService } from '../../../navigation.service';
 export class MenuItemComponent implements OnInit {
   @Input() element: MenuItem;
   @Input() isSelected: boolean;
+  @Input() isAnySelected: boolean;
   @Output() selected = new EventEmitter<MenuItem | null>();
   iconClassName: string;
   back = 'Back';

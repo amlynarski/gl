@@ -1,5 +1,6 @@
 <div class="nav-menu">
-    <div class="nav-menu-left-container">
+    <div class="nav-menu-left-container"
+         [ngClass]="!!selectedElement ? 'short-menu' : ''">
         <div class="close-nav-item"
              (click)="closeNav()">
             <i class="glyphicon glyphicon-remove"></i>
@@ -9,7 +10,8 @@
                 [element]="item"
                 [isSelected]="item.id === selectedElement?.id"
                 (selected)="onElementSelect($event)"
-        ></app-left-nav-menu-item>
+                [isAnySelected]="!!selectedElement">
+        </app-left-nav-menu-item>
     </div>
     <app-nav-menu-left-sub
             *ngIf="selectedElement"

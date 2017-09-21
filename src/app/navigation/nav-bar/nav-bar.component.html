@@ -1,5 +1,5 @@
 <div class="nav-bar">
-  <div class="container">
+  <div class="container hidden-xs">
     <nav class="nav-items">
       <i class="glyphicon glyphicon-menu-hamburger nav-item"
          (click)="toggleNavMenu()"></i>
@@ -10,4 +10,8 @@
       </div>
     </nav>
   </div>
+  <nav class="nav-items visible-xs">
+    <i class="glyphicon glyphicon-menu-hamburger nav-item"
+       (click)="toggleNavMenu()"></i>
+  </nav>
 </div>
