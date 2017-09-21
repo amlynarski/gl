@@ -30,7 +30,7 @@ export class MenuItemComponent implements OnInit {
     }
   }
 
-  getElementIconClass() {
+  private getElementIconClass() {
     this.iconClassName = this.navigationService.getElementIconClass(this.element.icon);
   }
 

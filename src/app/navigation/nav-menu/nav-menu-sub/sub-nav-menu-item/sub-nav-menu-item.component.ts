@@ -17,12 +17,12 @@ export class SubNavMenuItemComponent implements OnInit {
     this.thumbPath = this.setThumbPath(this.subItem.thumb);
   }
 
-  setThumbPath(name: string | null) {
-    return name ? this.navigationService.getThumbFullPath(name) : '';
-  }
-
   navigateTo() {
     this.navigationService.navigateTo(this.subItem.href);
+  }
+
+  private setThumbPath(name: string | null) {
+    return name ? this.navigationService.getThumbFullPath(name) : '';
   }
 
 }

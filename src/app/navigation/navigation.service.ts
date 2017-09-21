@@ -15,9 +15,7 @@ export class NavigationService {
   private selectedElement: MenuItem | null;
   private selectedElementStream: Subject<MenuItem | null>;
 
-  // todo return types in functions
-
-  constructor(private http: Http, private router: Router) { // todo update test with router
+  constructor(private http: Http, private router: Router) {
     this.isOpenStream = new Subject();
     this.selectedElementStream = new Subject();
   }
@@ -31,7 +29,7 @@ export class NavigationService {
       .catch(this.handleError);
   }
 
-  getElementIconClass(iconName: string) {
+  getElementIconClass(iconName: string): string {
     return ICON_PREFIX.concat(iconName.replace('.svg', ''));
   }
 
@@ -43,7 +41,7 @@ export class NavigationService {
     this.selectedElementStream.next(this.selectedElement);
   }
 
-  getSelectedElement() {
+  getSelectedElement(): MenuItem | null {
     return this.selectedElement;
   }
 

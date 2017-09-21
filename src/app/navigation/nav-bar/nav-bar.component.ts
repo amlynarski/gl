@@ -17,23 +17,23 @@ export class NavBarComponent implements OnInit {
     this.getMenuItems();
   }
 
-  getMenuItems() {
-    this.navigationService.getNavigationElements()
-      .subscribe(
-        response => this.setMainMenuItems(response.menu, response.main)
-      );
-  }
-
-  setMainMenuItems(menu: MenuItem[], mainIds: number[]) {
-    this.menuItems = menu.filter( ({id}) => !!mainIds.find(mainId => mainId === id));
-  }
-
   toggleNavMenu() {
     this.navigationService.toggleNav();
   }
 
   openNavigationElement(element: MenuItem) {
     this.navigationService.selectElement(element);
+  }
+
+  private getMenuItems() {
+    this.navigationService.getNavigationElements()
+      .subscribe(
+        response => this.setMainMenuItems(response.menu, response.main)
+      );
+  }
+
+  private setMainMenuItems(menu: MenuItem[], mainIds: number[]) {
+    this.menuItems = menu.filter( ({id}) => !!mainIds.find(mainId => mainId === id));
   }
 
 }
